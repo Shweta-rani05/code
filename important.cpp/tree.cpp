@@ -13,9 +13,7 @@ class Node {
         this->data=data;
         this->left=nullptr;
         this->right=nullptr;
-
     }
-
 };
 
 class Binarytree

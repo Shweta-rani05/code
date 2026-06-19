@@ -1,3 +1,8 @@
+/*
+Program (07) : Create two classes for 12-hours and 24-hours time format.Convert one time object to another.
+args:min,hr,time
+method : twelve().TwentyFour(),display()
+ */
 #include<iostream>
 using namespace std;
 

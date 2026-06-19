@@ -92,3 +92,49 @@ int main() {
 
     return 0;
 }
+
+
+
+#include<iostream>
+using namespace std;
+// ager ek hi naam k do function base or derived class dono m ho to jis class ka pointer hoga us class ka function call hoga.
+// lekin ager hmm virtual likh dege function k agee to fer pointer m jis object ka address hoga vo object vale class ka function call hoga.
+// pointer compile time per bnta h or object run time.or pointer m konsa object ka address ayega ye run time pe pta chlega.
+// to compiler by default compile time binding kar lega or vo pointer vle class ka ke function ko call krega ager ek hi naam k do function do class m ho.
+// Ager hmm function k age virtual likh dege to run time binding hogi or function call object k hisab hogi kyuki object run time per bnta h.
+class Base{
+    public:
+    virtual void basefunction(){
+        cout<<"Base function called"<<endl;
+    }
+};
+
+class Derived: public Base{
+    public:
+    void basefunction(){   // this is function overridding(help in modifying the function).
+        cout<<"Modified base function called"<<endl;
+    }
+    void derivedfunction(){
+        cout<<"Derived function called"<<endl;
+    }
+};
+
+int main(){
+    Base *b;
+    Derived *d;
+    Base obj1;
+    Derived obj2;
+
+    b = &obj1; 
+    b->basefunction();   // base vala
+
+    d = &obj2;  
+    d->basefunction();  // modified base vla
+    d->derivedfunction(); 
+
+    b = &obj2; 
+    b->basefunction();   // modified base vla kyuki base pointer m derived ka object h isliye derived vla function chlege.ager virtual nhi hota to pointer k type per depend karta.
+
+    // d = &obj1;       this caanot happen becuse derived pointer cannot point to base class 
+    return 0;
+}
